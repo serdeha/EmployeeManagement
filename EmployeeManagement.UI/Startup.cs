@@ -1,4 +1,6 @@
 using AutoMapper;
+using EmployeeManagement.BusnessEngine.Contracts;
+using EmployeeManagement.BusnessEngine.Implemention;
 using EmployeeManagement.Common.Mappings;
 using EmployeeManagement.Data.DataContext;
 using EmployeeManagement.Data.DbModels.Contracts;
@@ -29,9 +31,11 @@ namespace EmployeeManagement.UI
                 (options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
             services.AddAutoMapper(typeof(Maps));
 
-            services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeeLeaveAllocationRepository>();
-            services.AddScoped<IEmployeeLeaveTypeRepository,EmployeeLeaveTypeRepository>();
-            services.AddScoped<IEmployeeLeaveRequestRepository,EmployeeLeaveRequestRepository>();
+            //services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeeLeaveAllocationRepository>();
+            //services.AddScoped<IEmployeeLeaveTypeRepository,EmployeeLeaveTypeRepository>();
+            //services.AddScoped<IEmployeeLeaveRequestRepository,EmployeeLeaveRequestRepository>();
+
+            services.AddScoped<IEmployeeLeaveTypeBusinessEngine, EmployeeLeaveTypeBusinessEngine>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
