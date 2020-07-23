@@ -10,16 +10,14 @@ namespace EmployeeManagement.Data.DbModels.Implemention
         public UnitOfWork(EmployeeManagementContext context)
         {
             _context = context;
-            employeeLeaveAllocation = new EmployeeLeaveAllocationRepository(_context);
-            employeeLeaveRequest = new EmployeeLeaveRequestRepository(_context);
-            employeeLeaveType = new EmployeeLeaveTypeRepository(_context);
+            employeeLeaveAllocationRepository = new EmployeeLeaveAllocationRepository(_context);
+            employeeLeaveTypeRepository = new EmployeeLeaveTypeRepository(_context);
+            employeeLeaveRequestRepository = new EmployeeLeaveRequestRepository(_context);
         }
 
-        public IEmployeeLeaveAllocationRepository employeeLeaveAllocation { get;private set; }
-        public IEmployeeLeaveRequestRepository employeeLeaveRequest { get;private set; }
-        public IEmployeeLeaveTypeRepository employeeLeaveType { get;private set; }
-
-
+        public IEmployeeLeaveAllocationRepository employeeLeaveAllocationRepository { get; private set; }
+        public IEmployeeLeaveTypeRepository employeeLeaveTypeRepository { get; private set; }
+        public IEmployeeLeaveRequestRepository employeeLeaveRequestRepository { get; private set; }
 
         public void Dispose()
         {
